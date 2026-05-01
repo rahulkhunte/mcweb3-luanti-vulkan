@@ -139,3 +139,9 @@ lib/irrlichtmt
 
 # Generated mod storage database
 client/mod_storage.sqlite
+world/auth.sqlite
+world/map.sqlite
+world/mod_storage.sqlite
+world/players.sqlite
+world/env_meta.txt
+world/map_meta.txt
