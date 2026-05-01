@@ -1144,3 +1144,10 @@ elseif (USE_GETTEXT)
 
 	add_custom_target(translations ALL COMMENT "mo-update" DEPENDS ${MO_FILES})
 endif()
+
+# === MCWeb3 bgfx Vulkan backend ===
+add_subdirectory(${CMAKE_SOURCE_DIR}/thirdparty/bgfx.cmake bgfx_build)
+target_link_libraries(luantiserver bgfx bimg bx)
+
+# MCWeb3 Vulkan test binary
+add_subdirectory(vulkan_test)
