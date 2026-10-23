@@ -1,3 +1,29 @@
+# MCWeb3 — fork of Luanti
+
+This is a fork of [Luanti](https://github.com/luanti-org/luanti) used for the MCWeb3 project: a self-hosted Luanti game server, plus experiments with a bgfx/Vulkan renderer. The original Luanti README follows below.
+
+## What this fork adds
+
+**bgfx/Vulkan renderer work**
+- [`thirdparty/bgfx.cmake`](https://github.com/bkaradzic/bgfx.cmake) added as a git submodule.
+- [`src/vulkan_test/bgfx_init_test.cpp`](src/vulkan_test/bgfx_init_test.cpp): a standalone test binary (`mcweb3_vulkan_test`) that initializes bgfx with the Vulkan backend at 800×600, submits one frame, and falls back to OpenGL if Vulkan is unavailable.
+- This is an initialization test only. Luanti's own renderer is unchanged.
+
+**Game server**
+- A Luanti server (`luantiserver`) run on an Oracle Cloud ARM instance; [`world/world.mt`](world/world.mt) holds the world config.
+- A custom game for the server (HUD, portals, an in-game smartphone UI with a mock wallet and shop) was developed separately and is not published in this repo yet.
+
+## Contracts on Polygon Amoy (testnet)
+
+| Contract | Standard | Address |
+|---|---|---|
+| CraftCoin (CRAFT) | ERC-20 | [`0x9A68A45DD94EF96c69F3C352a2a828F70F5dD8CB`](https://amoy.polygonscan.com/address/0x9A68A45DD94EF96c69F3C352a2a828F70F5dD8CB) |
+| MCWeb3 Land (LAND) | ERC-721 | [`0xE3487D996d3fC36bc2f74C9E7177d8D6D6A8118A`](https://amoy.polygonscan.com/address/0xE3487D996d3fC36bc2f74C9E7177d8D6D6A8118A) |
+
+These are deployed on testnet only. The game server does not call them yet.
+
+---
+
 <div align="center">
     <img src="textures/base/pack/logo.png" width="32%">
     <h1>Luanti (formerly Minetest)</h1>
